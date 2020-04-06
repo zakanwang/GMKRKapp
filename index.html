@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+    </style>
+
     <title>業務効率化アプリ</title>
 </head>
 <body>
@@ -13,10 +17,11 @@
 
     <!--時計-->
     <div class="clock">
-    <h1 class="ittle">クロエタイマー</h1>
-    <h1 id="timerLabel">0:00:00</h1>
-    <input type="button" class="myButton" onclick="start()" value="START" id="startBtn">
 
+    <h1 class="title">クロエタイマー</h1>
+    <h1 class="timerLabel">0:00:00</h1>
+    <input type="button" class="myButton" onclick="start()" value="START" id="startBtn">
+    <input type="button" class="myButton" onclick="stop()" value="STOP">
 
     </div>
 
