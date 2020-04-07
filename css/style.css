@@ -8,6 +8,12 @@ body {
     font-family: Arial;
     padding: 10px;
     background: pink;
+    height: 500px;
+}
+body, #wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 /* 导航条 */
 .topnav {
@@ -78,4 +84,6 @@ h1{
     text-align: center;
     background: #ddd;
     display: block;
+    margin-top: auto;
+
 }
