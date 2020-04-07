@@ -37,6 +37,9 @@ body {
     color: black;
 }
 
+.clock1 {
+    text-align: center;
+}
 
 h1{
     color: red;
@@ -68,8 +71,7 @@ h1{
 
 /* 底部 */
 .footer {
-    padding: 5px;
     text-align: center;
     background: #ddd;
-    margin-top: 5px;
+    display: block;
 }
