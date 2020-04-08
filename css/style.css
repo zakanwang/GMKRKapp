@@ -58,24 +58,43 @@ body, #wrapper{
 
 .clock{
     text-align: center; /*让div内部文字居中*/
-    background-color: #fff;
     border-radius: 20px;
     width: 50%;
-    height: 20em;
+    height: 30em;
     margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
+     
+    display: -moz-box;/*兼容Firefox*/
+    display: -webkit-box;/*兼容FSafari、Chrome*/
 
+    -moz-box-align: center;/*兼容Firefox*/
+    -webkit-box-align: center;/*兼容FSafari、Chrome */
+
+    -moz-box-pack: center;/*兼容Firefox*/
+    -webkit-box-pack: center;/*兼容FSafari、Chrome */
 }
 
-h1{
-    color: red;
-}
+.clock h1{
+    height: 4em;
+    width: 10em;
+    color: #364e96;/*文字色*/
+    border: solid 3px #364e96;/*線色*/
+    padding: 0.5em;/*文字周りの余白*/
+    border-radius: 0.5em;/*角丸*/
+     
+    display: -moz-box;/*兼容Firefox*/
+    display: -webkit-box;/*兼容FSafari、Chrome*/
 
+    -moz-box-align: center;/*兼容Firefox*/
+    -webkit-box-align: center;/*兼容FSafari、Chrome */
+
+    -moz-box-pack: center;/*兼容Firefox*/
+    -webkit-box-pack: center;/*兼容FSafari、Chrome */
+}
+/* button */
+.botton{
+    margin: auto;
+
+}
 .myButton {
   display: inline-block;
   width:100px;
