@@ -31,7 +31,6 @@
         <div class="popup" id="js-popup">
             <div class="popup-inner">
                 <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                <a href="#"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
                 <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
                 <div id="output_message"></div>
             </div>
@@ -41,17 +40,7 @@
 
         <div class="calculate">
             <script language="javascript" type="text/javascript">
-                function calculate() {
-                    var peoples = document.getElementById("peoples").value;
-                    var money = document.getElementById("money").value;
-                    var amaoutTime = time/360000;
-                    var amountCost = Math.round(peoples * money * amaoutTime);
-                    
-                    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
-                    document.getElementById("output_message").innerHTML = cost;
-
-
-                }
+                
 
 
 

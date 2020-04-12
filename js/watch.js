@@ -108,3 +108,18 @@ function popupImage() {
     }
 }
 popupImage();
+
+
+
+
+function calculate() {
+    var peoples = document.getElementById("peoples").value;
+    var money = document.getElementById("money").value;
+    var amaoutTime = time/360000;
+    var amountCost = Math.round(peoples * money * amaoutTime);
+    
+    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
+    document.getElementById("output_message").innerHTML = cost;
+
+
+};
