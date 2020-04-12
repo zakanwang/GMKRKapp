@@ -30,8 +30,11 @@ function stop() {
     var pmsg = confirm('コストを表示させますか？');
 
     if (pmsg == true) {
+        console.error( '引数を指定してください！' );
+
+
         // OKなら移動
-        window.location.href = "https://www.google.com/";
+        
     }
 }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
@@ -112,7 +115,7 @@ popupImage();
 
 
 
-function calculate() {
+function calculate() { // コスト計算
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
     var amaoutTime = time/360000;
@@ -121,5 +124,6 @@ function calculate() {
     cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
     document.getElementById("output_message").innerHTML = cost;
 
-
 };
+
+
