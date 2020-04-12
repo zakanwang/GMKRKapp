@@ -37,7 +37,7 @@ body, #wrapper{
     padding: 14px 16px;
     text-decoration: none;
 }
-   
+
   /* 链接颜色修改 */
 .topnav a:hover {
     background-color: #ddd;
@@ -62,7 +62,7 @@ body, #wrapper{
     width: 50%;
     height: 30em;
     margin: auto;
-     
+
     display: -moz-box;/*兼容Firefox*/
     display: -webkit-box;/*兼容FSafari、Chrome*/
 
@@ -80,7 +80,7 @@ body, #wrapper{
     border: solid 3px #364e96;/*線色*/
     padding: 0.5em;/*文字周りの余白*/
     border-radius: 0.5em;/*角丸*/
-     
+
     display: -moz-box;/*兼容Firefox*/
     display: -webkit-box;/*兼容FSafari、Chrome*/
 
