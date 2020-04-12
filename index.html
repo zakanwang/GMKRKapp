@@ -20,8 +20,8 @@
     <h1 class="title">クロエタイマー</h1>
     <!--人数-->
     <div class="people">
-        <input type="number" name="peoples" min="1" max="99" placeholder="1~99">人
-        <input type="number" name="money" min="790" max="10000" placeholder="790~10000">円/人
+        <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
+        <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
     </div>
 
     <!--合計コスト-->
@@ -29,10 +29,28 @@
             <div class="popup-inner">
               <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
               <a href="#"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
+              <div id="output_message"></div>
             </div>
             <div class="black-background" id="js-black-bg"></div>
     </div>
-    <button id="js-show-popup">（仮の合計ボタン）</button>
+    <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button>
+
+    <div class="calculate">
+        <script language="javascript" type="text/javascript">
+            function calculate(){
+                var peoples = document.getElementById("peoples").value;
+                var money = document.getElementById("money").value;
+                cost = "今回の会議のコストは"+  peoples * money + "円だぜ！！";
+                document.getElementById("output_message").innerHTML =cost;
+
+
+            }
+         
+            
+            
+            </script>
+    </div>
+    <div id="output_message"></div>
 
 
         <!--時計-->
