@@ -1,3 +1,5 @@
+// タイマーウォッチ
+ 
     var status = 0; // 0:停止中 1:動作中
     var time = 0;
     var startBtn = document.getElementById("startBtn");
@@ -20,6 +22,20 @@
         // スタートボタンを押せるようにする
         startBtn.disabled = false;
     }
+
+
+// STOPを押したときに出るアラートメッセージ  
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  
+    function stop() {
+        var pmsg = confirm('コストを表示させますか？');
+        
+        if( pmsg == true) {
+            // OKなら移動
+            window.location.href = "https://www.google.com/";     
+        }
+    }
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
 
     function timer(){
         // ステータスが動作中の場合のみ実行
