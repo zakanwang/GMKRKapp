@@ -1,6 +1,9 @@
-// タイマーウォッチ
 
-var status = 0; // 0:停止中 1:動作中
+// 定数
+const STOP_FLG = 0;
+const START_FLG = 1;
+
+var Status = 0; // 0:停止中 1:動作中
 var time = 0;
 var startBtn = document.getElementById("startBtn");
 var timerLabel = document.getElementById('timerLabel');
@@ -8,33 +11,25 @@ var timerLabel = document.getElementById('timerLabel');
 // STARTボタン
 function start() {
     // 動作中にする
-    status = 1;
+    Status = START_FLG;
     // スタートボタンを押せないようにする
     startBtn.disabled = true;
 
     timer();
 }
 
-// STOPボタン
+
 function stop() {
-    // 停止中にする
-    status = 0;
-    // スタートボタンを押せるようにする
-    startBtn.disabled = false;
-}
 
+    // STOPを押したときに出るアラートメッセージ
+    var alertMsg = confirm('コストを表示させますか？');
 
-// STOPを押したときに出るアラートメッセージ  
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  
-function stop() {
-    var pmsg = confirm('コストを表示させますか？');
-
-    if (pmsg == true) {
+    if (alertMsg == true) {
         // OKなら移動
         window.location.href = "https://www.google.com/";
     }
 }
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
 
 
 function timer() {
@@ -77,9 +72,9 @@ function timer() {
 document.onkeydown = function (event) {
     if (event) {
         if (event.keyCode == 32 || event.which == 32) {
-            if (status == 1) {
+            if (Status == START_FLG) {
                 stop();
-            } else if (status == 0) {
+            } else if (status == STOP_FLG) {
                 start();
             }
         }
@@ -108,18 +103,3 @@ function popupImage() {
     }
 }
 popupImage();
-
-
-
-
-function calculate() {
-    var peoples = document.getElementById("peoples").value;
-    var money = document.getElementById("money").value;
-    var amaoutTime = time/360000;
-    var amountCost = Math.round(peoples * money * amaoutTime);
-    
-    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
-    document.getElementById("output_message").innerHTML = cost;
-
-
-};
