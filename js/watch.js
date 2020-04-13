@@ -68,18 +68,6 @@ function timer() {
     }
 }
 
-document.onkeydown = function (event) {
-    if (event) {
-        if (event.keyCode == 32 || event.which == 32) {
-            if (Status == START_FLG) {
-                stop();
-            } else if (status == STOP_FLG) {
-                start();
-            }
-        }
-    }
-};
-
 
 function popupImage() {
     var popup = document.getElementById('js-popup');
