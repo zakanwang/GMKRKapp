@@ -21,14 +21,30 @@ function start() {
 
 
 function stop() {
+    // 停止中にする
+    status = 0;
+    // スタートボタンを押せるようにする
+    startBtn.disabled = false;
     var AlertMsg = confirm('コストを表示させますか？');
     if (AlertMsg == true) {
         
+        
         // OKなら移動
-        window.location.href = "https://www.google.com/";
+        popupImage();
     }
 }
 
+
+
+// var stop = document.getElementById('js-show-popup"');
+
+// js-show-popup.addEventListener('click', function(){
+//     var result = window.confirm('コストを表示させますか？');
+
+//     if (result){
+//         popupImage();
+//     }
+// });
 
 
 function timer() {
@@ -104,5 +120,3 @@ function calculate() { // コスト計算
     document.getElementById("output_message").innerHTML = cost;
 
 };
-
-
