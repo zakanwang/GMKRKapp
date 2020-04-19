@@ -19,43 +19,41 @@
 
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <a href="index.html">ログ</a>
-
     </div>
-    <h1 class="title">クロエタイマー</h1>
-    <!--人数-->
-    <div class="people">
-        <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
-        <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
-    </div>
-
-    <!--合計コスト-->
-    <div class="popup" id="js-popup">
-        <div class="popup-inner">
-            <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-            <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
-            <div id="output_message"></div>
-        </div>
-        <div class="black-background" id="js-black-bg"></div>
-    </div>
-    <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
-
-
-
-
-
 
     <!--時計-->
     <div class="splash-container">
+        <h1 class="title">クロエタイマー</h1>
+        <!--人数-->
+        <div class="people">
+            <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
+            <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
+        </div>
+
+        <!--合計コスト-->
+        <div class="popup" id="js-popup">
+            <div class="popup-inner">
+                <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+                <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
+                <div id="output_message"></div>
+            </div>
+            <div class="black-background" id="js-black-bg"></div>
+        </div>
+        <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
+        
+        
+        <!-- 時計ボックス -->
         <div class="splash">
             <h1 class="splash-head" id="timerLabel">Press Start Botton</h1>
             <p class="splash-subhead">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
-        
-        <p><input type="button" class="pure-button pure-button-primary" onclick="start()" value="START" id="startBtn">
-        <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
-        <button id="js-show-popup" value="STOP" type="button" class="pure-button pure-button-primary"
-        onclick="calculate();stop();stop２()">STOP</button></p>
+
+            <p><input type="button" class="pure-button pure-button-primary" onclick="start()" value="START"
+                    id="startBtn">
+                <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
+                <button id="js-show-popup" value="STOP" type="button" class="pure-button pure-button-primary"
+                    onclick="calculate();stop();stop２()">STOP</button></p>
         </div>
     </div>
     <P></P>
