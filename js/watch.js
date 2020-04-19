@@ -30,7 +30,7 @@ function stop() {
         
         
         // OKなら移動
-        popupImage();
+       
     }
 }
 
