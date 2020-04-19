@@ -1,87 +1,199 @@
+(function () {
+    'use strict';
 
-// 定数
-const STOP_FLG = 0;
-const START_FLG = 1;
+    //htmlのidからデータを取得
+    //取得したデータを変数に代入
 
-var Status = STOP_FLG; // 0:停止中 1:動作中
-var time = STOP_FLG;
-var startBtn = document.getElementById("startBtn");
-var timerLabel = document.getElementById('timerLabel');
+    var timer = document.getElementById('timer');
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+    var reset = document.getElementById('reset');
 
-// STARTボタン
-function start() {
-    // 動作中にする
-    Status = START_FLG;
-    // スタートボタンを押せないようにする
-    startBtn.disabled = true;
+    //クリック時の時間を保持するための変数定義
+    var startTime;
 
-    timer();
-}
+    //経過時刻を更新するための変数。 初めはだから0で初期化
+    var elapsedTime = 0;
+
+    //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
+    var timerId;
+
+    //タイマーをストップ -> 再開させたら0になってしまうのを避けるための変数。
+    var timeToadd = 0;
 
 
-function stop() {
-    // 停止中にする
-    Status = STOP_FLG;
-    // スタートボタンを押せるようにする
-    startBtn.disabled = false;
-    var AlertMsg = confirm('コストを表示させますか？');
-    if (AlertMsg == true) {
-        
-        
-        // OKなら移動
-        popupImage();
+    //ミリ秒の表示ではなく、分とか秒に直すための関数, 他のところからも呼び出すので別関数として作る
+    //計算方法として135200ミリ秒経過したとしてそれを分とか秒に直すと -> 02:15:200
+    function updateTimetText() {
+
+        var h = Math.floor(elapsedTime / 60000 / 60);
+
+
+        //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
+        var m = Math.floor(elapsedTime / 60000);
+
+        //s(秒) = 135200 % 60000ミリ秒で / 1000 (ミリ秒なので1000で割ってやる) -> 15秒
+        var s = Math.floor(elapsedTime % 60000 / 1000);
+
+        //ms(ミリ秒) = 135200ミリ秒を % 1000ミリ秒で割った数の余り
+        var ms = elapsedTime % 1000;
+
+
+        //HTML 上で表示の際の桁数を固定する　例）3 => 03　、 12 -> 012
+        //javascriptでは文字列数列を連結すると文字列になる
+        //文字列の末尾2桁を表示したいのでsliceで負の値(-2)引数で渡してやる。
+        h = ('0' + h).slice(-1);
+        m = ('0' + m).slice(-2);
+        s = ('0' + s).slice(-2);
+        ms = ('0' + ms).slice(-3);
+
+        //HTMLのid　timer部分に表示させる　
+        timer.textContent = h + ':' + m + ':' + s;
     }
-}
 
 
+    //再帰的に使える用の関数
+    function countUp() {
 
-// var stop = document.getElementById('js-show-popup"');
+        //timerId変数はsetTimeoutの返り値になるので代入する
+        timerId = setTimeout(function () {
 
-// js-show-popup.addEventListener('click', function(){
-//     var result = window.confirm('コストを表示させますか？');
+            //経過時刻は現在時刻をミリ秒で示すDate.now()からstartを押した時の時刻(startTime)を引く
+            elapsedTime = Date.now() - startTime + timeToadd;
+            updateTimetText()
 
-//     if (result){
-//         popupImage();
-//     }
-// });
+            //countUp関数自身を呼ぶことで10ミリ秒毎に以下の計算を始める
+            countUp();
 
-
-function timer() {
-    // ステータスが動作中の場合のみ実行
-    if (Status == START_FLG) {
-        setTimeout(function () {
-            time++;
-
-            // 分・秒・ミリ秒を計算
-            var hour = Math.floor(time / 100 / 60 / 60);
-            var min = Math.floor(time / 100 / 60);
-            var sec = Math.floor(time / 100);
-            var mSec = time % 100;
-
-
-            // 分が６０分以上の場合 例）89分→29分にする
-            if (min >= 60) min = min % 60;
-
-            // 分が１桁の場合は、先頭に０をつける
-            if (min < 10) min = "0" + min;
-
-            // 秒が６０秒以上の場合　例）89秒→29秒にする
-            if (sec >= 60) sec = sec % 60;
-
-            // 秒が１桁の場合は、先頭に０をつける
-            if (sec < 10) sec = "0" + sec;
-
-
-
-
-            // タイマーラベルを更新
-            timerLabel.innerHTML = hour + ":" + min + ":" + sec;
-
-            // 再びtimer()を呼び出す
-            timer();
+            //1秒以下の時間を表示するために10ミリ秒後に始めるよう宣言
         }, 10);
     }
-}
+
+    //startボタンにクリック時のイベントを追加(タイマースタートイベント)
+    start.addEventListener('click', function () {
+        start.disabled = true;
+
+        //在時刻を示すDate.nowを代入
+        startTime = Date.now();
+
+        //再帰的に使えるように関数を作る
+        countUp();
+    });
+
+    //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
+    stop.addEventListener('click', function () {
+
+        //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
+        clearTimeout(timerId);
+
+
+        //タイマーに表示される時間elapsedTimeが現在時刻かたスタートボタンを押した時刻を引いたものなので、
+        //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
+        //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
+        timeToadd += Date.now() - startTime;
+    });
+
+    //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
+    reset.addEventListener('click', function () {
+
+        //経過時刻を更新するための変数elapsedTimeを0にしてあげつつ、updateTimetTextで0になったタイムを表示。
+        elapsedTime = 0;
+
+        //リセット時に0に初期化したいのでリセットを押した際に0を代入してあげる
+        timeToadd = 0;
+
+        //updateTimetTextで0になったタイムを表示
+        updateTimetText();
+
+    });
+})();
+
+
+
+
+// // 定数
+// const STOP_FLG = 0;
+// const START_FLG = 1;
+
+// var Status = STOP_FLG; // 0:停止中 1:動作中
+// var time = STOP_FLG;
+// var startBtn = document.getElementById("startBtn");
+// var timerLabel = document.getElementById('timerLabel');
+
+// // STARTボタン
+// function start() {
+//     // 動作中にする
+//     Status = START_FLG;
+//     // スタートボタンを押せないようにする
+//     startBtn.disabled = true;
+
+//     timer();
+// }
+
+
+// function stop() {
+//     // 停止中にする
+//     Status = STOP_FLG;
+//     // スタートボタンを押せるようにする
+//     startBtn.disabled = false;
+//     var AlertMsg = confirm('コストを表示させますか？');
+//     if (AlertMsg == true) {
+        
+        
+//         // OKなら移動
+//         popupImage();
+//     }
+// }
+
+
+
+// // var stop = document.getElementById('js-show-popup"');
+
+// // js-show-popup.addEventListener('click', function(){
+// //     var result = window.confirm('コストを表示させますか？');
+
+// //     if (result){
+// //         popupImage();
+// //     }
+// // });
+
+
+// function timer() {
+//     // ステータスが動作中の場合のみ実行
+//     if (Status == START_FLG) {
+//         setTimeout(function () {
+//             time++;
+
+//             // 分・秒・ミリ秒を計算
+//             var hour = Math.floor(time / 100 / 60 / 60);
+//             var min = Math.floor(time / 100 / 60);
+//             var sec = Math.floor(time / 100);
+//             var mSec = time % 100;
+
+
+//             // 分が６０分以上の場合 例）89分→29分にする
+//             if (min >= 60) min = min % 60;
+
+//             // 分が１桁の場合は、先頭に０をつける
+//             if (min < 10) min = "0" + min;
+
+//             // 秒が６０秒以上の場合　例）89秒→29秒にする
+//             if (sec >= 60) sec = sec % 60;
+
+//             // 秒が１桁の場合は、先頭に０をつける
+//             if (sec < 10) sec = "0" + sec;
+
+
+
+
+//             // タイマーラベルを更新
+//             timerLabel.innerHTML = hour + ":" + min + ":" + sec;
+
+//             // 再びtimer()を呼び出す
+//             timer();
+//         }, 10);
+//     }
+// }
 
 
 function popupImage() {
