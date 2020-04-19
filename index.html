@@ -11,6 +11,7 @@
     <link rel="icon" href="./img/timer.ico" type="image/x-icon">
     <!--收藏夹显示图标-->
     <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
+    
 </head>
 
 
@@ -31,12 +32,13 @@
         <div class="popup" id="js-popup">
             <div class="popup-inner">
                 <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
+                <a href="#"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
                 <div id="output_message"></div>
             </div>
             <div class="black-background" id="js-black-bg"></div>
-        </div>
-        <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
+        </div> 
+        <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button>-->
+
 
 
 
@@ -54,14 +56,21 @@
             <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
             <button id="js-show-popup" value="STOP" type="button" class="myButton"
                 onclick="calculate();stop();stop２()">STOP</button>
+
+
+
+
         </div>
         <P></P>
     </div>
+    <h1 id="output_message"></h1>
     <!--footer-->
     <div class="footer">
         <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
     </div>
+    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>   
     <script src="./js/watch.js"></script>
+    
 </body>
 
 </html>

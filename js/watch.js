@@ -27,10 +27,9 @@ function stop() {
     startBtn.disabled = false;
     var AlertMsg = confirm('コストを表示させますか？');
     if (AlertMsg == true) {
+        status = 0;
+
         
-        
-        // OKなら移動
-        popupImage();
     }
 }
 
@@ -39,12 +38,12 @@ function stop() {
 // var stop = document.getElementById('js-show-popup"');
 
 // js-show-popup.addEventListener('click', function(){
-//     var result = window.confirm('コストを表示させますか？');
+// //     var result = window.confirm('コストを表示させますか？');
 
-//     if (result){
-//         popupImage();
-//     }
-// });
+// //     if (result){
+// //         popupImage();
+// //     }
+// // });
 
 
 function timer() {
@@ -85,6 +84,22 @@ function timer() {
 }
 
 
+
+
+
+
+
+function calculate() { // コスト計算
+    var peoples = document.getElementById("peoples").value;
+    var money = document.getElementById("money").value;
+    var amaoutTime = time/360000;
+    var amountCost = Math.round(peoples * money * amaoutTime);
+    
+    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
+    document.getElementById("output_message").innerHTML = cost;
+
+};
+
 function popupImage() {
     var popup = document.getElementById('js-popup');
     if (!popup) return;
@@ -101,22 +116,10 @@ function popupImage() {
     function closePopUp(elem) {
         if (!elem) return;
         elem.addEventListener('click', function () {
-            popup.classList.toggle('is-show');
+        popup.classList.toggle('is-show');
+        
+            
         });
     }
 }
 popupImage();
-
-
-
-
-function calculate() { // コスト計算
-    var peoples = document.getElementById("peoples").value;
-    var money = document.getElementById("money").value;
-    var amaoutTime = time/360000;
-    var amountCost = Math.round(peoples * money * amaoutTime);
-    
-    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
-    document.getElementById("output_message").innerHTML = cost;
-
-};

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex, nofollow">
+<title>pop up 2 | Tech dig</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='gglcptch-css'  href='https://tech-dig.jp/wp/wp-content/plugins/google-captcha/css/gglcptch.css?ver=1.37' type='text/css' media='all' />
+<script src='https://tech-dig.jp/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script src='https://tech-dig.jp/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://tech-dig.jp/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tech-dig.jp/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://tech-dig.jp/wp/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='pop up 1' href='https://tech-dig.jp/demo/pop-up-1/' />
+<link rel='next' title='change-color' href='https://tech-dig.jp/demo/change-color/' />
+
+<link rel="canonical" href="https://tech-dig.jp/demo/pop-up-2/" />
+<link rel='shortlink' href='https://tech-dig.jp/?p=1469' />
+<link rel="alternate" type="application/json+oembed" href="https://tech-dig.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftech-dig.jp%2Fdemo%2Fpop-up-2%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://tech-dig.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftech-dig.jp%2Fdemo%2Fpop-up-2%2F&#038;format=xml" />
+<link rel="icon" href="https://tech-dig.jp/wp/wp-content/uploads/2018/08/cropped-icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://tech-dig.jp/wp/wp-content/uploads/2018/08/cropped-icon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://tech-dig.jp/wp/wp-content/uploads/2018/08/cropped-icon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://tech-dig.jp/wp/wp-content/uploads/2018/08/cropped-icon-270x270.png" />
+<style>
+* {
+  box-sizing: border-box;
+}
+.title {
+  text-align: center;
+}
+.content {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.box {
+  width: 49%;
+  height: 300px;
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+}
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: .6s;
+}
+.popup.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+.popup-inner img {
+  width: 100%;
+}
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.close-btn {
+  font-size: 20px;
+  color: #333;
+}
+.close-btn::before {
+  content: "";
+  position: absolute;
+}
+.black-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  z-index: 1;
+  cursor: pointer;
+} 
+</style>
+<!-- HTML タグ -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9246898689705693",
+    enable_page_level_ads: true
+  });
+</script><!-- Google Analytics タグ -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-119348693-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Search Console タグ -->
+<meta name="google-site-verification" content="zKFZ_JzcaQAKIQuydAYa-Az4PFGd3hIR4-LK70Srzlo" /></head>
+<body>
+<div class="entry-content">
+<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+<div class="container">
+<div class="popup" id="js-popup">
+  <div class="popup-inner">
+    <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+    <a href="#"><img src="https://tech-dig.jp/wp/wp-content/uploads/2018/10/popup.jpg" alt="ポップアップ画像"></a>
+  </div>
+  <div class="black-background" id="js-black-bg"></div>
+</div>
+<h1 class="title">Contents</h1>
+<div class="content">
+  <button id="js-show-popup">Show Popup</button>
+</div>
+</div></div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/tech-dig.jp\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"\u3042\u306a\u305f\u304c\u30ed\u30dc\u30c3\u30c8\u3067\u306f\u306a\u3044\u3053\u3068\u3092\u8a3c\u660e\u3057\u3066\u304f\u3060\u3055\u3044\u3002"}}};
+/* ]]> */
+</script>
+<script src='https://tech-dig.jp/wp/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.5'></script>
+<script async="async" src='https://tech-dig.jp/wp/wp-content/themes/tech_dig/js/prism.js?ver=eed88faa59de59814574e10d04043b86'></script>
+<script src='https://tech-dig.jp/wp/wp-includes/js/wp-embed.min.js?ver=eed88faa59de59814574e10d04043b86'></script>
+<script>
+function popupImage() {
+  var popup = document.getElementById('js-popup');
+  if(!popup) return;
+
+  var blackBg = document.getElementById('js-black-bg');
+
+  var blackBg = document.getElementById('js-black-bg');
+  var closeBtn = document.getElementById('js-close-btn');
+  var showBtn = document.getElementById('js-show-popup');
+
+  closePopUp(blackBg);
+  closePopUp(closeBtn);
+  closePopUp(showBtn);
+  function closePopUp(elem) {
+    if(!elem) return;
+    elem.addEventListener('click', function() {
+      popup.classList.toggle('is-show');
+    });
+  }
+}
+popupImage();</script>
+</body>
+</html>
