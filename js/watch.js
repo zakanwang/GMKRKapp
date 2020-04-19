@@ -34,8 +34,6 @@ let elapsedTime = 0;
 
         var h = Math.floor(elapsedTime / 60000 / 60);
         
-
-
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
         var m = Math.floor(elapsedTime / 60000);
 
@@ -56,7 +54,7 @@ let elapsedTime = 0;
 
         //HTMLのid　timer部分に表示させる　
         timer.textContent = h + ':' + m + ':' + s;
-    }
+
 
 
     //再帰的に使える用の関数
