@@ -1,18 +1,17 @@
 
 // 定数
-// const STOP_FLG = 0;
-// const START_FLG = 1;
+const STOP_FLG = 0;
+const START_FLG = 1;
 
-var Status = 0; // 0:停止中 1:動作中
-var time = 0;
+var Status = STOP_FLG; // 0:停止中 1:動作中
+var time = STOP_FLG;
 var startBtn = document.getElementById("startBtn");
 var timerLabel = document.getElementById('timerLabel');
 
 // STARTボタン
 function start() {
     // 動作中にする
-    // Status = START_FLG;
-    Status = 1;
+    Status = START_FLG;
     // スタートボタンを押せないようにする
     startBtn.disabled = true;
 
@@ -22,7 +21,7 @@ function start() {
 
 function stop() {
     // 停止中にする
-    status = 0;
+    Status = STOP_FLG;
     // スタートボタンを押せるようにする
     startBtn.disabled = false;
     var AlertMsg = confirm('コストを表示させますか？');
@@ -49,7 +48,7 @@ function stop() {
 
 function timer() {
     // ステータスが動作中の場合のみ実行
-    if (Status == 1) {
+    if (Status == START_FLG) {
         setTimeout(function () {
             time++;
 
