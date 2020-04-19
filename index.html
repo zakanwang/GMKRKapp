@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pure.css">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <title>業務効率化アプリ</title>
@@ -15,11 +16,13 @@
 
 
 <body>
-    <div class="wrapper">
-        <div class="topnav">
-            <a href="index.html">ログ</a>
 
-        </div>
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a href="index.html">ログ</a>
+    </div>
+
+    <!--時計-->
+    <div class="splash-container">
         <h1 class="title">クロエタイマー</h1>
         <!--人数-->
         <div class="people">
@@ -37,29 +40,27 @@
             <div class="black-background" id="js-black-bg"></div>
         </div>
         <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
+        
+        
+        <!-- 時計ボックス -->
+        <div class="splash">
+            <h1 class="splash-head" id="timer">Press Start Botton</h1>
+            <p class="splash-subhead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
 
-
-
-
-
-
-        <!--時計-->
-        <div class="clock">
-
-            <h1 id="timer">0:00:00</h1>
-
+            <p><input type="button" class="pure-button pure-button-primary" onclick="start()" value="START"
+                    id="startBtn">
+                <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
+                <button id="js-show-popup" value="STOP" type="button" class="pure-button pure-button-primary"
+                    onclick="calculate();stop();stop２()">STOP</button></p>
         </div>
-        <div class="botton">
-            <input type="button" class="myButton" value="START" id="start">
-            <!-- <input type="button" class="myButton" value="STOP" id="stop"> -->
-            <button id="js-show-popup" value="STOP" type="button" class="myButton"
-                onclick="calculate();stop();stop２()">STOP</button> 
-        </div>
-        <P></P>
     </div>
+    <P></P>
+
     <!--footer-->
-    <div class="footer">
-        <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
+    <div class="footer l-box is-center">
+        Ⓒ 2020 Kanae Bucket Plus
     </div>
     <script src="./js/watch.js"></script>
 </body>
