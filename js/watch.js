@@ -1,3 +1,8 @@
+
+//時間をグローバル変数化しました。
+let elapsedTime = 0;
+
+
 (function () {
     'use strict';
 
@@ -8,12 +13,13 @@
     var start = document.getElementById('start');
     var stop = document.getElementById('stop');
     var reset = document.getElementById('reset');
+    var restart = document.getElementById('')
 
     //クリック時の時間を保持するための変数定義
     var startTime;
 
     //経過時刻を更新するための変数。 初めはだから0で初期化
-    var elapsedTime = 0;
+    // var elapsedTime = 0;
 
     //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
     var timerId;
@@ -27,6 +33,7 @@
     function updateTimetText() {
 
         var h = Math.floor(elapsedTime / 60000 / 60);
+        
 
 
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
@@ -92,7 +99,10 @@
         //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
         //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
         timeToadd += Date.now() - startTime;
+        start.disabled = false;
     });
+
+
 
     //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
     reset.addEventListener('click', function () {
@@ -109,6 +119,15 @@
     });
 })();
 
+function stop2() {
+ // 停止中にする		
+    // スタートボタンを押せるようにする			
+    var AlertMsg = confirm('コストを表示させますか？');		
+        if (AlertMsg == true) {
+    }
+}
+
+
 
 
 
@@ -120,7 +139,7 @@ function popupImage() {
 
     var blackBg = document.getElementById('js-black-bg');
     var closeBtn = document.getElementById('js-close-btn');
-    var showBtn = document.getElementById('js-show-popup');
+    var showBtn = document.getElementById('stop');
 
     closePopUp(blackBg);
     closePopUp(closeBtn);
@@ -132,7 +151,7 @@ function popupImage() {
         });
     }
 }
-popupImage();
+// popupImage();
 
 
 
@@ -140,9 +159,8 @@ popupImage();
 function calculate() { // コスト計算
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
-    var amaoutTime = time/360000;
+    var amaoutTime = elapsedTime /360000;
     var amountCost = Math.round(peoples * money * amaoutTime);
-    
     cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
     document.getElementById("output_message").innerHTML = cost;
 
