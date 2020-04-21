@@ -71,7 +71,7 @@
 
     //startボタンにクリック時のイベントを追加(タイマースタートイベント)
     start.addEventListener('click', function () {
-        
+
         start.disabled = true;
 
         //在時刻を示すDate.nowを代入
@@ -82,17 +82,20 @@
     });
 
     //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
+
     stop.addEventListener('click', function () {
+        var AlertMsg = confirm('コストを表示させますか？');
+        if (AlertMsg == true) {
 
-        //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
-        clearTimeout(timerId);
 
-
-        //タイマーに表示される時間elapsedTimeが現在時刻かたスタートボタンを押した時刻を引いたものなので、
-        //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
-        //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
-        timeToadd += Date.now() - startTime;
+            // OKなら移動
+            popupImage();
+        }
     });
+
+
+
+
 
     //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
     reset.addEventListener('click', function () {
@@ -140,10 +143,10 @@ popupImage();
 function calculate() { // コスト計算
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
-    var amaoutTime = time/360000;
+    var amaoutTime = time / 360000;
     var amountCost = Math.round(peoples * money * amaoutTime);
-    
-    cost = "今回の会議のコストは" + amountCost +  "円だぜ！！";
+
+    cost = "今回の会議のコストは" + amountCost + "円だぜ！！";
     document.getElementById("output_message").innerHTML = cost;
 
 };
