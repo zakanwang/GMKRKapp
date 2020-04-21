@@ -9,6 +9,7 @@ let elapsedTime = 0;
     var start = document.getElementById('start');
     var stop = document.getElementById('stop');
     var reset = document.getElementById('reset');
+    var restart = document.getElementById('')
 
     //クリック時の時間を保持するための変数定義
     var startTime;
@@ -28,8 +29,7 @@ let elapsedTime = 0;
     function updateTimetText() {
 
         var h = Math.floor(elapsedTime / 60000 / 60);
-
-
+        
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
         var m = Math.floor(elapsedTime / 60000);
 
@@ -50,7 +50,7 @@ let elapsedTime = 0;
 
         //HTMLのid　timer部分に表示させる　
         timer.textContent = h + ':' + m + ':' + s;
-    }
+
 
 
     //再帰的に使える用の関数
@@ -112,6 +112,15 @@ let elapsedTime = 0;
     });
 })();
 
+function stop2() {
+ // 停止中にする		
+    // スタートボタンを押せるようにする			
+    var AlertMsg = confirm('コストを表示させますか？');		
+        if (AlertMsg == true) {
+    }
+}
+
+
 
 
 
@@ -123,7 +132,7 @@ function popupImage() {
 
     var blackBg = document.getElementById('js-black-bg');
     var closeBtn = document.getElementById('js-close-btn');
-    var showBtn = document.getElementById('js-show-popup');
+    var showBtn = document.getElementById('stop');
 
     closePopUp(blackBg);
     closePopUp(closeBtn);
@@ -135,7 +144,7 @@ function popupImage() {
         });
     }
 }
-popupImage();
+// popupImage();
 
 
 
