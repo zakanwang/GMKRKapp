@@ -50,6 +50,7 @@ let elapsedTime = 0;
 
         //HTMLのid　timer部分に表示させる　
         timer.textContent = h + ':' + m + ':' + s;
+    }
 
 
 
