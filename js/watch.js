@@ -1,4 +1,5 @@
 let elapsedTime = 0;
+
 (function () {
     'use strict';
 
@@ -90,7 +91,7 @@ let elapsedTime = 0;
 
 
             // OKなら移動
-            popupImage();
+            // popupImage();
         }
     });
 
@@ -145,7 +146,7 @@ function popupImage() {
         });
     }
 }
-// popupImage();
+popupImage();
 
 
 
