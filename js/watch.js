@@ -1,3 +1,4 @@
+let elapsedTime = 0;
 (function () {
     'use strict';
 
@@ -13,7 +14,7 @@
     var startTime;
 
     //経過時刻を更新するための変数。 初めはだから0で初期化
-    var elapsedTime = 0;
+    // var elapsedTime = 0;
 
     //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
     var timerId;
@@ -60,8 +61,7 @@
 
             //経過時刻は現在時刻をミリ秒で示すDate.now()からstartを押した時の時刻(startTime)を引く
             elapsedTime = Date.now() - startTime + timeToadd;
-            updateTimetText()
-
+            updateTimetText();
             //countUp関数自身を呼ぶことで10ミリ秒毎に以下の計算を始める
             countUp();
 
