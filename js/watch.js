@@ -85,15 +85,40 @@ let elapsedTime = 0;
 
     //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
 
-    stop.addEventListener('click', function () {
-        var AlertMsg = confirm('コストを表示させますか？');
-        if (AlertMsg == true) {
+    // stop.addEventListener('click', function () {
+    //     var AlertMsg = confirm('コストを表示させますか？');
+    //     if (AlertMsg == true) {
 
 
-            // OKなら移動
-            // popupImage();
-        }
+    //         // OKなら移動
+    //         popupImage();
+    //     }
+    // });
+
+
+
+    //オーバーレイを初期化して、トリガーがダイアログを開くように。
+    var trigger = $("#confirm_modal").overlay({
+
+        //半透明のマスクの作成
+        mask: {
+            color:'#ebecff',
+            loadSpeed: 200,
+            opacity:0.9
+        },
+
+        closeOnClick: false
     });
+
+    var button = $("#yesno").click(function(e){
+        
+        var yes = button.index(this) === 0;
+        // var no  = buttons.index(this) === 1;
+
+        trigger.eq(0).html("You clicked " + (yes ? "yes" : "no"));
+
+    });
+
 
 
 
@@ -114,15 +139,6 @@ let elapsedTime = 0;
     });
 })();
 
-function stop2() {
- // 停止中にする		
-    // スタートボタンを押せるようにする			
-    var AlertMsg = confirm('コストを表示させますか？');		
-        if (AlertMsg == true) {
-    }
-}
-
-
 
 
 
@@ -134,7 +150,7 @@ function popupImage() {
 
     var blackBg = document.getElementById('js-black-bg');
     var closeBtn = document.getElementById('js-close-btn');
-    var showBtn = document.getElementById('stop');
+    var showBtn = document.getElementById('yes');
 
     closePopUp(blackBg);
     closePopUp(closeBtn);
@@ -146,12 +162,12 @@ function popupImage() {
         });
     }
 }
-popupImage();
+// popupImage();
 
 
 
-
-function calculate() { // コスト計算
+// コスト計算
+function calculate() { 
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
     var amaoutTime = elapsedTime / 360000;
@@ -161,3 +177,36 @@ function calculate() { // コスト計算
     document.getElementById("output_message").innerHTML = cost;
 
 };
+
+
+
+
+function createCookie(){
+    //cookieの保持期限を設定
+    //nullの場合には、セッション終了まで有効。
+    var days = null;
+    if(days){
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires=" +date.toGMTString();
+    }else{
+    var expires = "";
+    };
+    //cookieを書きこむ
+    document.cookie = "hensu"+"="+100+expires+"; path=/";
+    };
+
+    //cookieを読み込む
+function readCookie(){
+    //cookieのhensuの値を返す
+    var name ="hensu" + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++){
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(name ) == 0){
+    return c.substring(name.length,c.length);
+    };
+    };
+    return null;
+    };

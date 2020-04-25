@@ -17,32 +17,64 @@
         <a href="index.html">ログ</a>
         
     </div>
-    <h1 class="title">クロエタイマー</h1>
-    <!--人数-->
-    <div class="people">
-        <input type="number" name="peoples" min="1" max="99" placeholder="1~99">人
-        <input type="number" name="money" min="790" max="10000" placeholder="790~10000">円/人
-    </div>
 
-    <!--合計コスト-->
-    <div class="popup" id="js-popup">
-            <div class="popup-inner">
-                <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
-            </div>
-            <div class="black-background" id="js-black-bg"></div>
+
+ <!--合計コスト-->
+ <div class="popup" id="js-popup">
+    <div class="popup-inner">
+        <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+        <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
+        <div id="output_message"></div>
     </div>
-    <button id="js-show-popup">（仮の合計ボタン）</button>
+    <div class="black-background" id="js-black-bg"></div>
+</div>
+<!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
+
+
+
+
+
+<div>パラメータ
+<p><div id="getparam"></div></p>
+<span id=”amountTime″>名前はいるとこ</span>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
+
+
+
+
 
         <!--時計-->
     <div class="clock">
         <h1>結果は：ｘｘｘ</h1>
+        <p><div id="output_message"></div></p>
     </div>
     <div class="botton">
         <input type="button" class="myButton" onclick="start()" value="RESTART" id="startBtn">
         <input type="button" class="myButton" onclick="stop()" value="RESET">
     </div>
 <P></P>
+
+<script>
+    var param = "param="
+    var getparam = location.search.substring(param.length,location.search.length);
+    getparam = unescape(getparam);
+    document.getElementById("output_message").innerHTML = getparam;
+    
+    console.log(getparam);
+    
+</script>
+
+
+
 </div>
     <!--footer-->
     <div class="footer">
