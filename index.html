@@ -12,10 +12,15 @@
     <link rel="icon" href="./img/timer.ico" type="image/x-icon">
     <!--收藏夹显示图标-->
     <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
+    
+    
 </head>
 
 
 <body>
+
+    <form action="cost.html" method="get">
+
 
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <a href="index.html">ログ</a>
@@ -29,6 +34,43 @@
             <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
             <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
         </div>
+
+
+
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<div id="div3" style="display:none;">
+<p>合計コストを表示させますか</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(function() {
+	$("#stop").click(function() {
+		$("#div3").dialog({
+			modal:true, //モーダル表示
+			title:"会議終わっちゃう？", //タイトル
+            buttons: { //ボタン
+			"Yes!": function() {
+            
+                var param_time = elapsedTime;
+                console.log(param_time);
+
+				window.location.href = "./cost.html?param=" + param_time;
+				},
+			"まだ続ける": function() {
+				$(this).dialog("close"); 
+				}
+			}
+		});
+	});
+});
+</script>
+
+
+
 
         <!--合計コスト-->
         <div class="popup" id="js-popup">
@@ -49,20 +91,37 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
 
-            <p><input type="button" class="pure-button pure-button-primary" onclick="start()" value="START"
-                    id="start">
+            <p><input type="button" class="pure-button pure-button-primary" value="START" id="start">
                 <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
                 <button id="stop" value="STOP" type="button" class="pure-button pure-button-primary"
-                    onclick="calculate();stop();stop２()">STOP</button></p>
+                    onclick="calculate();stop();">STOP</button></p>
         </div>
     </div>
-    <P></P>
+
+
+    <!--Jquery動いているかどうかの確認だけ-->
+<script> 
+    var jquery;
+    jQuery(function(){
+        console.log('Hello World!');
+    })
+</script>
+
+
 
     <!--footer-->
     <div class="footer l-box is-center">
         Ⓒ 2020 Kanae Bucket Plus
     </div>
     <script src="./js/watch.js"></script>
+   
+
+    
+
+
+
+
+    
 </body>
 
 </html>
