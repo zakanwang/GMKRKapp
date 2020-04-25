@@ -30,7 +30,7 @@ let elapsedTime = 0;
     function updateTimetText() {
 
         var h = Math.floor(elapsedTime / 60000 / 60);
-        
+
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
         var m = Math.floor(elapsedTime / 60000);
 
@@ -102,16 +102,16 @@ let elapsedTime = 0;
 
         //半透明のマスクの作成
         mask: {
-            color:'#ebecff',
+            color: '#ebecff',
             loadSpeed: 200,
-            opacity:0.9
+            opacity: 0.9
         },
 
         closeOnClick: false
     });
 
-    var button = $("#yesno").click(function(e){
-        
+    var button = $("#yesno").click(function (e) {
+
         var yes = button.index(this) === 0;
         // var no  = buttons.index(this) === 1;
 
@@ -167,7 +167,7 @@ function popupImage() {
 
 
 // コスト計算
-function calculate() { 
+function calculate() {
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
     var amaoutTime = elapsedTime / 360000;
@@ -180,33 +180,32 @@ function calculate() {
 
 
 
-
-function createCookie(){
+function createCookie() {
     //cookieの保持期限を設定
     //nullの場合には、セッション終了まで有効。
     var days = null;
-    if(days){
-    var date = new Date();
-    date.setTime(date.getTime()+(days*24*60*60*1000));
-    var expires = "; expires=" +date.toGMTString();
-    }else{
-    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+    } else {
+        var expires = "";
     };
     //cookieを書きこむ
-    document.cookie = "hensu"+"="+100+expires+"; path=/";
-    };
+    document.cookie = "hensu" + "=" + 100 + expires + "; path=/";
+};
 
-    //cookieを読み込む
-function readCookie(){
+//cookieを読み込む
+function readCookie() {
     //cookieのhensuの値を返す
-    var name ="hensu" + "=";
+    var name = "hensu" + "=";
     var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++){
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(name ) == 0){
-    return c.substring(name.length,c.length);
-    };
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        };
     };
     return null;
-    };
+};
