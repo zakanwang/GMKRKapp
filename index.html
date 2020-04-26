@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pure.css">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <title>業務効率化アプリ</title>
@@ -11,66 +12,116 @@
     <link rel="icon" href="./img/timer.ico" type="image/x-icon">
     <!--收藏夹显示图标-->
     <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
-    
+
+
 </head>
 
 
 <body>
-    <div class="wrapper">
-        <div class="topnav">
+
+    <form action="cost.html" method="get">
+
+
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a href="index.html">ログ</a>
-
         </div>
-        <h1 class="title">クロエタイマー</h1>
-        <!--人数-->
-        <div class="people">
-            <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
-            <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
-        </div>
-
-        <!--合計コスト-->
-        <div class="popup" id="js-popup">
-            <div class="popup-inner">
-                <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                <a href="#"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
-                <div id="output_message"></div>
-            </div>
-            <div class="black-background" id="js-black-bg"></div>
-        </div> 
-        <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button>-->
-
-
-
-
-
-
 
         <!--時計-->
-        <div class="clock">
+        <div class="splash-container">
+            <h1 class="title">クロエタイマー</h1>
+            <!--人数-->
+            <div class="people">
+                <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
+                <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
+            </div>
 
-            <h1 id="timerLabel">0:00:00</h1>
 
+
+            <link rel="stylesheet"
+                href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+            <div id="div3" style="display:none;">
+                <p>合計コストを表示させますか</p>
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <script>
+                $(function () {
+                    $("#stop").click(function () {
+                        $("#div3").dialog({
+                            modal: true, //モーダル表示
+                            title: "会議終わっちゃう？", //タイトル
+                            buttons: { //ボタン
+                                "Yes!": function () {
+
+                                    var param_time = elapsedTime;
+                                    console.log(param_time);
+
+                                    window.location.href = "./cost.html?param=" + param_time;
+                                },
+                                "まだ続ける": function () {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        });
+                    });
+                });
+            </script>
+
+
+
+
+            <!--合計コスト-->
+            <div class="popup" id="js-popup">
+                <div class="popup-inner">
+                    <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+                    <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
+                    <div id="output_message"></div>
+                </div>
+                <div class="black-background" id="js-black-bg"></div>
+            </div>
+            <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
+
+
+            <!-- 時計ボックス -->
+            <div class="splash">
+                <h1 class="splash-head" id="timer">Press Start Botton</h1>
+                <p class="splash-subhead">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <p><input type="button" class="pure-button pure-button-primary" value="START" id="start">
+                    <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
+                    <button id="stop" value="STOP" type="button" class="pure-button pure-button-primary"
+                        onclick="calculate();stop();">STOP</button></p>
+            </div>
         </div>
-        <div class="botton">
-            <input type="button" class="myButton" onclick="start()" value="START" id="startBtn">
-            <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
-            <button id="js-show-popup" value="STOP" type="button" class="myButton"
-                onclick="calculate();stop();stop２()">STOP</button>
+
+
+        <!--Jquery動いているかどうかの確認だけ-->
+        <script>
+            var jquery;
+            jQuery(function () {
+                console.log('Hello World!');
+            })
+        </script>
 
 
 
-
+        <!--footer-->
+        <div class="footer l-box is-center">
+            Ⓒ 2020 Kanae Bucket Plus
         </div>
-        <P></P>
-    </div>
-    <h1 id="output_message"></h1>
-    <!--footer-->
-    <div class="footer">
-        <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
-    </div>
-    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>   
-    <script src="./js/watch.js"></script>
-    
+        <script src="./js/watch.js"></script>
+
+
+
+
+
+
+
+
 </body>
 
 </html>

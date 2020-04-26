@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
-    <title>業務効率化アプリ</title>
-    <!--网页标题左侧显示-->
-    <link rel="icon" href="./img/timer.ico" type="image/x-icon">
-    <!--收藏夹显示图标-->
-    <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+  <title>業務効率化アプリ</title>
+  <!--网页标题左侧显示-->
+  <link rel="icon" href="./img/timer.ico" type="image/x-icon">
+  <!--收藏夹显示图标-->
+  <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
 </head>
+
 <body>
-<div class="wrapper">
+  <div class="wrapper">
     <div class="topnav">
         <a href="index.html">ログ</a>
         
@@ -27,6 +29,64 @@
     <div class="footer">
         <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
     </div>
-    <script src = "./js/watch.js"></script>
+
+
+    <script>
+      
+      let val = getUrlVars();
+      let vars = 0;
+      var output_message = 0;
+
+      function getUrlVars(){
+
+        var vars = [] , max = 0, hash = "" , array = "";
+        var url = window.location.search;
+
+        hash = url.slice(1).split('&');
+        // console.log(hash);
+        max = hash.length;
+        // console.log(max);
+        
+
+        for (var i = 0; i < max; i ++){
+          array = hash[i].split('=');
+          vars.push(array[1]);
+        //  vars[array[0]] = array[1];
+        }
+
+        // パラメーターが取得できているか確認
+        console.log(vars[0]);
+        alert(vars[0]);
+
+        return vars;
+        console.log(vars);
+        var output_message = document.getElementById('output_message');
+        output_message.innerText = vars[0];
+
+
+        // console.log(output_message);
+      }
+      getUrlVars();
+      // console.log(vars);
+      // console.log(output_message);
+
+      // var getparam = location.search.substring(param.length, location.search.length);
+      // getparam = unescape(getparam);
+      // document.getElementById("output_message").innerHTML = getparam;
+
+      // console.log(getparam);
+
+    </script>
+    <h1 id="output_message">結果は：ｘｘｘ</h1>
+
+
+
+  </div>
+  <!--footer-->
+  <div class="footer">
+    <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
+  </div>
+  <script src="./js/watch.js"></script>
 </body>
+
 </html>
