@@ -167,6 +167,7 @@ function popupImage() {
 
 
 // コスト計算
+var amountCost = 0;
 function calculate() {
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
@@ -174,9 +175,10 @@ function calculate() {
     var amountCost = Math.round(peoples * money * amaoutTime);
 
     cost = "今回の会議のコストは" + amountCost + "円だぜ！！";
-    document.getElementById("output_message").innerHTML = cost;
+    // document.getElementById("output_message").innerHTML = cost;
 
 };
+
 
 
 

@@ -22,6 +22,8 @@
     <h1 class="title">クロエタイマー</h1>
 <div>
     <h1 id="output_message"></h1>
+    <h1 id="peoples"></h1>
+    <h1 id="per_cost"></h1>
 
 
 </div>
@@ -33,51 +35,9 @@
 
     <script>
       
-      let val = getUrlVars();
-      let vars = 0;
-      var output_message = 0;
-
-      function getUrlVars(){
-
-        var vars = [] , max = 0, hash = "" , array = "";
-        var url = window.location.search;
-
-        hash = url.slice(1).split('&');
-        // console.log(hash);
-        max = hash.length;
-        // console.log(max);
-        
-
-        for (var i = 0; i < max; i ++){
-          array = hash[i].split('=');
-          vars.push(array[1]);
-        //  vars[array[0]] = array[1];
-        }
-
-        // パラメーターが取得できているか確認
-        console.log(vars[0]);
-        alert(vars[0]);
-
-        return vars;
-        console.log(vars);
-        var output_message = document.getElementById('output_message');
-        output_message.innerText = vars[0];
-
-
-        // console.log(output_message);
-      }
-      getUrlVars();
-      // console.log(vars);
-      // console.log(output_message);
-
-      // var getparam = location.search.substring(param.length, location.search.length);
-      // getparam = unescape(getparam);
-      // document.getElementById("output_message").innerHTML = getparam;
-
-      // console.log(getparam);
 
     </script>
-    <h1 id="output_message">結果は：ｘｘｘ</h1>
+
 
 
 
@@ -86,6 +46,7 @@
   <div class="footer">
     <h3>Ⓒ 2020 Kanae Bucket Plus</h3>
   </div>
+  <script src="./js/cost.js"></script>
   <script src="./js/watch.js"></script>
 </body>
 
