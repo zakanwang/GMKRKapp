@@ -18,19 +18,8 @@
     <div class="topnav">
       <a href="index.html">ログ</a>
 
-    </div>
+  </div>
 
-
-    <!--合計コスト-->
-    <div class="popup" id="js-popup">
-      <div class="popup-inner">
-        <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-        <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
-        <div id="output_message"></div>
-      </div>
-      <div class="black-background" id="js-black-bg"></div>
-    </div>
-    <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
 
 
 
@@ -40,7 +29,7 @@
       <p>
         <div id="getparam"></div>
       </p>
-      <span id=”amountTime″>名前はいるとこ</span>
+      <span id=”output_message″>名前はいるとこ</span>
     </div>
 
 
@@ -58,26 +47,57 @@
 
     <!--時計-->
     <div class="clock">
-      <h1>結果は：ｘｘｘ</h1>
+      <h1 id="output_message">結果は：ｘｘｘ</h1>
       <p>
         <div id="output_message"></div>
       </p>
     </div>
-    <div class="botton">
-      <input type="button" class="myButton" onclick="start()" value="RESTART" id="startBtn">
-      <input type="button" class="myButton" onclick="stop()" value="RESET">
-    </div>
-    <P></P>
+
 
     <script>
-      var param = "param="
-      var getparam = location.search.substring(param.length, location.search.length);
-      getparam = unescape(getparam);
-      document.getElementById("output_message").innerHTML = getparam;
+      
+      let val = getUrlVars();
+      let vars = 0;
+      var output_message = 0;
 
-      console.log(getparam);
+      function getUrlVars(){
+
+        var vars = [] , max = 0, hash = "" , array = "";
+        var url = window.location.search;
+
+        hash = url.slice(1).split('&');
+        // console.log(hash);
+        max = hash.length;
+        // console.log(max);
+
+        for (var i = 0; i < max; i ++){
+          array = hash[i].split('=');
+          vars.push(array[0]);
+          vars[array[0]] = array[1];
+          
+
+        }
+
+        return vars;
+        console.log(vars);
+        var output_message = document.getElementById('output_message');
+        output_message.innerText = vars;
+
+
+        // console.log(output_message);
+      }
+      getUrlVars();
+      // console.log(vars);
+      // console.log(output_message);
+
+      // var getparam = location.search.substring(param.length, location.search.length);
+      // getparam = unescape(getparam);
+      // document.getElementById("output_message").innerHTML = getparam;
+
+      // console.log(getparam);
 
     </script>
+    <h1 id="output_message">結果は：ｘｘｘ</h1>
 
 
 
