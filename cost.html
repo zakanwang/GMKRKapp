@@ -69,6 +69,7 @@
         // console.log(hash);
         max = hash.length;
         // console.log(max);
+        
 
         for (var i = 0; i < max; i ++){
           array = hash[i].split('=');
@@ -78,11 +79,12 @@
 
         // パラメーターが取得できているか確認
         console.log(vars[0]);
+        alert(vars[0]);
 
         return vars;
         console.log(vars);
         var output_message = document.getElementById('output_message');
-        output_message.innerText = vars;
+        output_message.innerText = vars[0];
 
 
         // console.log(output_message);
