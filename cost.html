@@ -72,11 +72,12 @@
 
         for (var i = 0; i < max; i ++){
           array = hash[i].split('=');
-          vars.push(array[0]);
-          vars[array[0]] = array[1];
-          
-
+          vars.push(array[1]);
+        //  vars[array[0]] = array[1];
         }
+
+        // パラメーターが取得できているか確認
+        console.log(vars[0]);
 
         return vars;
         console.log(vars);
