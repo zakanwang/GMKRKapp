@@ -69,7 +69,7 @@ label {
 
 /* clock */
 
- .splash-container {
+.splash-container {
   background: #1f8dd6;
   z-index: 1;
   overflow: hidden;
@@ -231,9 +231,6 @@ label {
     background-color: rgba(0,0,0,.8);
     z-index: 1;
     cursor: pointer;
-<<<<<<< HEAD
-  } 
-=======
   }
 
 
@@ -294,4 +291,3 @@ label {
       font-size: 300%;
   }
 }
->>>>>>> kato

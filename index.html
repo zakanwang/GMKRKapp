@@ -25,12 +25,6 @@
 
         <!--時計-->
         <div class="splash-container">
-            <h1 class="title">クロエタイマー</h1>
-            <!--人数-->
-            <div class="people">
-                <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
-                <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人
-            </div>
 
             <div id="div3" style="display:none;">
                 <p>合計コストを表示させますか</p>
@@ -48,16 +42,16 @@
                                 "Yes!": function () {
                                     var param_time = elapsedTime;
                                     console.log(param_time);
-                                    
-                                    
+
+
                                     calculate();
-                                    
+
                                     var peoples = document.getElementById("peoples").value;
                                     var per_cost = document.getElementById("money").value;
-                                    
-                                    
-                                    
-                                    window.location.href = "./cost.html?param=" + param_time +"="+ peoples +"=" + per_cost +"=" + amountCost;
+
+
+
+                                    window.location.href = "./cost.html?param=" + param_time + "=" + peoples + "=" + per_cost + "=" + amountCost;
                                 },
                                 "まだ続ける": function () {
                                     $(this).dialog("close");
@@ -67,17 +61,15 @@
                     });
                 });
             </script>
-
-
-
-
-            <!-- 時計ボックス -->
+            <!-- 中身-->
             <div class="splash">
+                <!--人数-->
+                <p class="people">
+                    <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
+                    <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人</p>
+                <!-- 時計ボックス -->
                 <h1 class="splash-head" id="timer">Press Start Botton</h1>
-                <p class="splash-subhead">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-
+                <!-- bottom -->
                 <p><input type="button" class="pure-button pure-button-primary" value="START" id="start">
                     <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
                     <button id="stop" value="STOP" type="button" class="pure-button pure-button-primary"
