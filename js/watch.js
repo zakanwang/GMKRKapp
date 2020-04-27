@@ -1,4 +1,5 @@
 let elapsedTime = 0;
+let amountCost = 0;
 
 (function () {
     'use strict';
@@ -167,7 +168,7 @@ function popupImage() {
 
 
 // コスト計算
-var amountCost = 0;
+
 function calculate() {
     var peoples = document.getElementById("peoples").value;
     var money = document.getElementById("money").value;
@@ -211,3 +212,6 @@ function readCookie() {
     };
     return null;
 };
+
+
+
