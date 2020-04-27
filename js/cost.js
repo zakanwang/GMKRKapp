@@ -25,9 +25,13 @@ function getUrlVars(){
 
   // パラメーターが取得できているか確認
   console.log("58行目" + vars[1]);
-  var message = document.getElementById('output_message').innerHTML = `<b>経過時間:${vars[0]} </b>`
+  var amount_time  = vars[0]/ 360000 ;
+  var message = document.getElementById('output_message').innerHTML = `<b>経過時間:${amount_time}時間 </b>`
   var peoples = document.getElementById('peoples').innerHTML = `<b>人数:${vars[1]} </b>`
   var per_cost = document.getElementById('per_cost').innerHTML = `<b>一人あたりのコスト:${vars[2]} </b>`
+  
+  var amount_cost =  Math.round(amount_time * vars[1] * vars[2]);
+  var result = document.getElementById('result').innerHTML = `<b>今回の会議のコストは:${amount_cost }円 だぜ！！</b>`
     
   alert(vars[0]);
 
