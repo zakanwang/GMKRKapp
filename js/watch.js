@@ -34,7 +34,7 @@ let amountCost = 0;
         console.log(elapsedTime)
 
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
-        var m = Math.floor(elapsedTime % 3600000/ 60000);
+        var m = Math.floor(elapsedTime % 3600000 / 60000);
 
         //s(秒) = 135200 % 60000ミリ秒で / 1000 (ミリ秒なので1000で割ってやる) -> 15秒
         var s = Math.floor(elapsedTime % 60000 / 1000);
@@ -55,6 +55,17 @@ let amountCost = 0;
         timer.textContent = h + ':' + m + ':' + s;
     }
 
+    //ボタン表示変更の関数
+    function startBtn() {
+        const start = document.getElementById("start");
+        const value1 = start.value;
+
+        if (value1 == "START") {
+            start.value = "PAUSE";
+        } else {
+            start.value = "START";
+        }
+    }
 
 
     //再帰的に使える用の関数
@@ -76,28 +87,30 @@ let amountCost = 0;
     //startボタンにクリック時のイベントを追加(タイマースタートイベント)
     start.addEventListener('click', function () {
 
-        start.disabled = true;
+        //start.disabled = true;
+        startBtn();
 
         //在時刻を示すDate.nowを代入
         startTime = Date.now();
 
         //再帰的に使えるように関数を作る
         countUp();
+        
     });
 
+    
     //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
+    stop.addEventListener('click', function () {
 
-    // stop.addEventListener('click', function () {
-    //     var AlertMsg = confirm('コストを表示させますか？');
-    //     if (AlertMsg == true) {
-
-
-    //         // OKなら移動
-    //         popupImage();
-    //     }
-    // });
+        //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
+        clearTimeout(timerId);
 
 
+        //タイマーに表示される時間elapsedTimeが現在時刻かたスタートボタンを押した時刻を引いたものなので、
+        //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
+        //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
+        timeToadd += Date.now() - startTime;
+    });
 
     //オーバーレイを初期化して、トリガーがダイアログを開くように。
     var trigger = $("#confirm_modal").overlay({
@@ -164,7 +177,7 @@ function popupImage() {
         });
     }
 }
-// popupImage();
+
 
 
 
