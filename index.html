@@ -44,6 +44,8 @@
                 <p>合計コストを表示させますか</p>
             </div>
 
+
+            <!--モーダル からcost.htmlへの繊維および、パラメータ生成-->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
             <script>
@@ -59,7 +61,7 @@
                                     console.log(param_time);
                                     let amountCost = 0;
                                     
-                                    calculate() ;
+                                    calculate();
                                     
 
                                     var peoples = document.getElementById("peoples").value;
@@ -80,18 +82,6 @@
             </script>
 
 
-
-
-            <!--合計コスト-->
-            <div class="popup" id="js-popup">
-                <div class="popup-inner">
-                    <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                    <a href="cost.html"><img src="./img/cost_cut.png" alt="合計コストだよ"></a>
-                    <div id="output_message"></div>
-                </div>
-                <div class="black-background" id="js-black-bg"></div>
-            </div>
-            <!-- <button id="js-show-popup" onclick="calculate()">（仮の合計ボタン）</button> -->
 
 
             <!-- 時計ボックス -->
