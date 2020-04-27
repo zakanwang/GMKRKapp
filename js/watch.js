@@ -31,9 +31,10 @@ let amountCost = 0;
     function updateTimetText() {
 
         var h = Math.floor(elapsedTime / 60000 / 60);
+        console.log(elapsedTime)
 
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
-        var m = Math.floor(elapsedTime / 60000);
+        var m = Math.floor(elapsedTime % 3600000/ 60000);
 
         //s(秒) = 135200 % 60000ミリ秒で / 1000 (ミリ秒なので1000で割ってやる) -> 15秒
         var s = Math.floor(elapsedTime % 60000 / 1000);

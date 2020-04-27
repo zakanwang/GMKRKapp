@@ -43,8 +43,6 @@
             <div id="div3" style="display:none;">
                 <p>合計コストを表示させますか</p>
             </div>
-
-
             <!--モーダル からcost.htmlへの繊維および、パラメータ生成-->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -56,20 +54,17 @@
                             title: "会議終わっちゃう？", //タイトル
                             buttons: { //ボタン
                                 "Yes!": function () {
-
                                     var param_time = elapsedTime;
                                     console.log(param_time);
-                                    let amountCost = 0;
+                                    
                                     
                                     calculate();
                                     
-
                                     var peoples = document.getElementById("peoples").value;
                                     var per_cost = document.getElementById("money").value;
                                     
                                     
                                     
-
                                     window.location.href = "./cost.html?param=" + param_time +"="+ peoples +"=" + per_cost +"=" + amountCost;
                                 },
                                 "まだ続ける": function () {
