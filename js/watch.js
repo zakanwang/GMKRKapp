@@ -1,6 +1,5 @@
 let elapsedTime = 0;
 let amountCost = 0;
-let timer_flag = true;
 
 (function () {
     'use strict';
@@ -116,7 +115,7 @@ let timer_flag = true;
         countUp();
         start.value = "PAUSE";
 
-        //STARTボタンの値がPAUSEの場合は、時間を止めよ。
+        //STARTボタンの値がPAUSEの場合は、時間よ止まれ-The world。
         }else if (start.value =="PAUSE"){
             clearTimeout(timerId);
         
@@ -191,16 +190,16 @@ let timer_flag = true;
 
 // コスト計算
 
-function calculate() {
-    var peoples = document.getElementById("peoples").value;
-    var money = document.getElementById("money").value;
-    var amaoutTime = elapsedTime / 360000;
-    var amountCost = Math.round(peoples * money * amaoutTime);
+// function calculate() {
+//     var peoples = document.getElementById("peoples").value;
+//     var money = document.getElementById("money").value;
+//     var amaoutTime = elapsedTime / 360000;
+//     var amountCost = Math.round(peoples * money * amaoutTime);
 
-    cost = "今回の会議のコストは" + amountCost + "円だぜ！！";
-    // document.getElementById("output_message").innerHTML = cost;
+//     cost = "今回の会議のコストは" + amountCost + "円だぜ！！";
+//     // document.getElementById("output_message").innerHTML = cost;
 
-};
+// };
 
 
 
