@@ -95,10 +95,16 @@ let amountCost = 0;
 
         //再帰的に使えるように関数を作る
         countUp();
-
+        
     });
 
+    
+    stop.addEventListener('click', function () {
 
+        clearTimeout(timerId);
+
+        timeToadd += Date.now() - startTime;
+    });
 
     //オーバーレイを初期化して、トリガーがダイアログを開くように。
     var trigger = $("#confirm_modal").overlay({
