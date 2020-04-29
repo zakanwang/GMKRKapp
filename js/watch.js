@@ -1,5 +1,6 @@
 let elapsedTime = 0;
 let amountCost = 0;
+let timer_flag = true;
 
 (function () {
     'use strict';
@@ -31,7 +32,6 @@ let amountCost = 0;
     function updateTimetText() {
 
         var h = Math.floor(elapsedTime / 60000 / 60);
-        console.log(elapsedTime)
 
         //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
         var m = Math.floor(elapsedTime % 3600000 / 60000);
@@ -56,16 +56,25 @@ let amountCost = 0;
     }
 
     //ボタン表示変更の関数
-    function startBtn() {
-        const start = document.getElementById("start");
-        const value1 = start.value;
+    // function startBtn() {
+    //     const start = document.getElementById("start");
+    //     const value1 = start.value;
+    //     var temporary_time = elapsedTime;
 
-        if (value1 == "START") {
-            start.value = "PAUSE";
-        } else {
-            start.value = "START";
-        }
-    }
+    //     if (value1 == "START" && elapsedTime==0) {
+    //         start.value = "PAUSE";
+
+    //     } else if(value1 == "START" && elapsedTime!=0) {
+    //         start.value = "PAUSE";
+    //         clearTimeout(timerId);
+    //         timeToadd += Date.now() - startTime;
+
+    //     }else {
+    //         start.value = "START";
+
+    //     }
+        
+    // }
 
 
     //再帰的に使える用の関数
@@ -78,7 +87,10 @@ let amountCost = 0;
             elapsedTime = Date.now() - startTime + timeToadd;
             updateTimetText();
             //countUp関数自身を呼ぶことで10ミリ秒毎に以下の計算を始める
-            countUp();
+            
+                countUp();
+            
+                
 
             //1秒以下の時間を表示するために10ミリ秒後に始めるよう宣言
         }, 10);
@@ -87,16 +99,32 @@ let amountCost = 0;
     //startボタンにクリック時のイベントを追加(タイマースタートイベント)
     start.addEventListener('click', function () {
 
+        
+
         //start.disabled = true;
-        startBtn();
+        // startBtn();
+        
+        if (start.value == "START"){
 
         //在時刻を示すDate.nowを代入
         startTime = Date.now();
+        
 
         //再帰的に使えるように関数を作る
-        countUp();
         
+        countUp();
+        start.value = "PAUSE";
+        }else if (start.value =="PAUSE"){
+            clearTimeout(timerId);
+        
+                timeToadd += Date.now() - startTime;
+                start.value = "START"
+            
+    }
+    
     });
+
+
 
     
     stop.addEventListener('click', function () {
@@ -104,6 +132,7 @@ let amountCost = 0;
         clearTimeout(timerId);
 
         timeToadd += Date.now() - startTime;
+        start.value = "START"
     });
 
 
