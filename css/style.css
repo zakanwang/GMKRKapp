@@ -403,6 +403,9 @@ label {
   line-height: 1.4;
   padding: 0.4em 0.5em;
   margin: 2em 0 0.5em;
+  height: 100%;
+  width: 80%;
+  margin : 50px
 }
 .cost_result::before {
   position: absolute;
@@ -417,5 +420,8 @@ label {
   font-size: 0.7em;
   line-height: 1;
   letter-spacing: 0.05em;
+  
+  width: 80%;
+  
 }
 
