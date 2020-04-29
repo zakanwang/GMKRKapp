@@ -119,14 +119,7 @@ let amountCost = 0;
         closeOnClick: false
     });
 
-    var button = $("#yesno").click(function (e) {
 
-        var yes = button.index(this) === 0;
-        // var no  = buttons.index(this) === 1;
-
-        trigger.eq(0).html("You clicked " + (yes ? "yes" : "no"));
-
-    });
 
 
 
