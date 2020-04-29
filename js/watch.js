@@ -106,18 +106,7 @@ let amountCost = 0;
         timeToadd += Date.now() - startTime;
     });
 
-    //オーバーレイを初期化して、トリガーがダイアログを開くように。
-    var trigger = $("#confirm_modal").overlay({
 
-        //半透明のマスクの作成
-        mask: {
-            color: '#ebecff',
-            loadSpeed: 200,
-            opacity: 0.9
-        },
-
-        closeOnClick: false
-    });
 
 
 
@@ -144,26 +133,26 @@ let amountCost = 0;
 
 
 
-function popupImage() {
-    var popup = document.getElementById('js-popup');
-    if (!popup) return;
+// function popupImage() {
+//     var popup = document.getElementById('js-popup');
+//     if (!popup) return;
 
-    var blackBg = document.getElementById('js-black-bg');
+//     var blackBg = document.getElementById('js-black-bg');
 
-    var blackBg = document.getElementById('js-black-bg');
-    var closeBtn = document.getElementById('js-close-btn');
-    var showBtn = document.getElementById('yes');
+//     var blackBg = document.getElementById('js-black-bg');
+//     var closeBtn = document.getElementById('js-close-btn');
+//     var showBtn = document.getElementById('yes');
 
-    closePopUp(blackBg);
-    closePopUp(closeBtn);
-    closePopUp(showBtn);
-    function closePopUp(elem) {
-        if (!elem) return;
-        elem.addEventListener('click', function () {
-            popup.classList.toggle('is-show');
-        });
-    }
-}
+//     closePopUp(blackBg);
+//     closePopUp(closeBtn);
+//     closePopUp(showBtn);
+//     function closePopUp(elem) {
+//         if (!elem) return;
+//         elem.addEventListener('click', function () {
+//             popup.classList.toggle('is-show');
+//         });
+//     }
+// }
 
 
 
