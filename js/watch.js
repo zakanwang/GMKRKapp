@@ -1,6 +1,5 @@
 let elapsedTime = 0;
 let amountCost = 0;
-let timer_flag = true;
 
 (function () {
     'use strict';
@@ -104,6 +103,7 @@ let timer_flag = true;
         //start.disabled = true;
         // startBtn();
         
+        //STARTボタンの値によって条件分岐をさせる。
         if (start.value == "START"){
 
         //在時刻を示すDate.nowを代入
@@ -114,6 +114,8 @@ let timer_flag = true;
         
         countUp();
         start.value = "PAUSE";
+
+        //STARTボタンの値がPAUSEの場合は、時間を止めよ。
         }else if (start.value =="PAUSE"){
             clearTimeout(timerId);
         
