@@ -249,14 +249,14 @@ label {
   outline: none;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
 }
 
-.pure-button:hover {background-color: #ff4eb5}
+.pure-button:hover {background-color: #ff719c}
 
 .pure-button:active {
-  background-color: #ff4eb5;
-  box-shadow: 0 5px #666;
+  background-color: #ff719c;
+  box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
 
@@ -278,6 +278,8 @@ label {
   margin-bottom: 1em;
 }
 
+
+/* popup */
 .popup {
 
     position: fixed;
