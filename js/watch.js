@@ -1,5 +1,6 @@
 let elapsedTime = 0;
 let amountCost = 0;
+let timer_flag = true;
 
 (function () {
     'use strict';
