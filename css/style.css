@@ -29,10 +29,46 @@ label {
     max-width: 100%;
     height: auto;
 }
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+  padding: 1em;
+}
+
+.l-box-lrg {
+  padding: 2em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+  text-align: center;
+}
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.pure-form input[type] {
+  border: 2px solid #ddd;
+  box-shadow: none;
+  font-size: 100%;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
 /* 导航条 */
 .home-menu {
     overflow: hidden;
     background-color: #333;
+    text-align: center;
 }
 
 .title{
@@ -70,7 +106,7 @@ label {
 /* clock */
 
 .splash-container {
-  background: #1f8dd6;
+  background: pink;
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
@@ -110,6 +146,62 @@ label {
   letter-spacing: 0.05em;
   opacity: 0.8;
 }
+
+/*
+ * -- CONTENT STYLES --
+ * This represents the content area (everything below the blue section)
+ */
+.content-wrapper {
+  /* These styles are required for the "scroll-over" effect */
+  position: absolute;
+  top: 87%;
+  width: 100%;
+  min-height: 12%;
+  z-index: 2;
+  background: white;
+
+}
+
+/* We want to give the content area some more padding */
+.content {
+  padding: 1em 1em 3em;
+}
+
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 2em 0 1em;
+}
+
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
+  color: white;
+}
+
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+  color: #ac4882;
+}
+  .content-subhead i {
+      margin-right: 7px;
+  }
+
+/* This is the class used for the dark-background areas. */
+.ribbon {
+  background: #2d3e50;
+  color: #aaa;
+}
+
+/* This is the class used for the footer */
+.footer {
+  background: pink;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 #timerLabel{
   margin:100px 0px;
   color:white;
@@ -160,23 +252,31 @@ label {
   box-shadow: 0 9px #999;
 }
 
-.pure-button:hover {background-color: #1f2685}
+.pure-button:hover {background-color: #ff4eb5}
 
 .pure-button:active {
-  background-color: #1f2685;
+  background-color: #ff4eb5;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-
-/* 底部 */
-.footer {
-  background: #ddd;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 100%;
 }
 
+.pure-form input[type] {
+  border: 2px solid #ddd;
+  box-shadow: none;
+  font-size: 100%;
+  width: 100%;
+  margin-bottom: 1em;
+}
 
 .popup {
 
