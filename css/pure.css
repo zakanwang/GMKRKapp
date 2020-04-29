@@ -854,7 +854,7 @@ this the same font stack that Normalize.css sets for the `body`.
 .pure-button-selected,
 a.pure-button-primary,
 a.pure-button-selected {
-    background-color: rgb(231, 0, 162);
+    background-color: #ff427b;
     color: #fff;
 }
 
