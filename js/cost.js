@@ -25,7 +25,7 @@ function getUrlVars(){
 
   // パラメーターが取得できているか確認
   console.log("58行目" + vars[1]);
-  var amount_time  = vars[0]/ 360000 ;
+  var amount_time  = vars[0]/ 3600000 ;
   var message = document.getElementById('output_message').innerHTML = `<b>経過時間:${amount_time}時間 </b>`
   var peoples = document.getElementById('peoples').innerHTML = `<b>人数:${vars[1]} </b>`
   var per_cost = document.getElementById('per_cost').innerHTML = `<b>一人あたりのコスト:${vars[2]} 円/時間</b>`
