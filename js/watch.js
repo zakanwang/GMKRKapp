@@ -30,50 +30,38 @@ let amountCost = 0;
     //計算方法として135200ミリ秒経過したとしてそれを分とか秒に直すと -> 02:15:200
     function updateTimetText() {
 
-        var h = Math.floor(elapsedTime / 60000 / 60);
-
-        //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
-        var m = Math.floor(elapsedTime % 3600000 / 60000);
-
-        //s(秒) = 135200 % 60000ミリ秒で / 1000 (ミリ秒なので1000で割ってやる) -> 15秒
-        var s = Math.floor(elapsedTime % 60000 / 1000);
-
-        //ms(ミリ秒) = 135200ミリ秒を % 1000ミリ秒で割った数の余り
+        var h = Math.floor(Math.floor( elapsedTime / 1000 / 60 ) / 60 );
+        var m = Math.floor(elapsedTime　/ 1000 / 60 ) % 60;
+        var s = Math.floor(elapsedTime / 1000 ) % 60;
         var ms = elapsedTime % 1000;
 
 
         //HTML 上で表示の際の桁数を固定する　例）3 => 03　、 12 -> 012
         //javascriptでは文字列数列を連結すると文字列になる
         //文字列の末尾2桁を表示したいのでsliceで負の値(-2)引数で渡してやる。
-        h = ('0' + h).slice(-1);
-        m = ('0' + m).slice(-2);
-        s = ('0' + s).slice(-2);
-        ms = ('0' + ms).slice(-3);
+        //h = ('0' + h).slice(-1);
+        //m = ('0' + m).slice(-2);
+        //s = ('0' + s).slice(-2);
+        //ms = ('0' + ms).slice(-3);
 
         //HTMLのid　timer部分に表示させる　
-        timer.textContent = h + ':' + m + ':' + s;
+
+        var peoples = document.getElementById("peoples").value;
+        var per_cost = document.getElementById("money").value;
+        var ByoCount = s + m * 60 + h * 60 * 60;
+        var money = Math.floor(peoples * per_cost / 60 / 60 * ByoCount);
+
+        if ( m < 10 ){
+            m = "0" + m;
+        }
+        if ( s < 10 ){
+            s = "0" + s
+        }
+
+        //timer.textContent = h + ':' + m + ':' + s;
+        document.getElementById("timer").innerHTML = h + ':' + m + ':' + s;
+        document.getElementById("realTimeCost").innerHTML = "現在の会議コスト：" + "<span id='money2'>" + money + "</span>円";
     }
-
-    //ボタン表示変更の関数
-    // function startBtn() {
-    //     const start = document.getElementById("start");
-    //     const value1 = start.value;
-    //     var temporary_time = elapsedTime;
-
-    //     if (value1 == "START" && elapsedTime==0) {
-    //         start.value = "PAUSE";
-
-    //     } else if(value1 == "START" && elapsedTime!=0) {
-    //         start.value = "PAUSE";
-    //         clearTimeout(timerId);
-    //         timeToadd += Date.now() - startTime;
-
-    //     }else {
-    //         start.value = "START";
-
-    //     }
-        
-    // }
 
 
     //再帰的に使える用の関数
@@ -137,15 +125,6 @@ let amountCost = 0;
         start.value = "START"
     });
 
-
-
-
-
-
-
-
-
-
     //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
     reset.addEventListener('click', function () {
 
@@ -160,48 +139,6 @@ let amountCost = 0;
 
     });
 })();
-
-
-
-
-// function popupImage() {
-//     var popup = document.getElementById('js-popup');
-//     if (!popup) return;
-
-//     var blackBg = document.getElementById('js-black-bg');
-
-//     var blackBg = document.getElementById('js-black-bg');
-//     var closeBtn = document.getElementById('js-close-btn');
-//     var showBtn = document.getElementById('yes');
-
-//     closePopUp(blackBg);
-//     closePopUp(closeBtn);
-//     closePopUp(showBtn);
-//     function closePopUp(elem) {
-//         if (!elem) return;
-//         elem.addEventListener('click', function () {
-//             popup.classList.toggle('is-show');
-//         });
-//     }
-// }
-
-
-
-
-// コスト計算
-
-// function calculate() {
-//     var peoples = document.getElementById("peoples").value;
-//     var money = document.getElementById("money").value;
-//     var amaoutTime = elapsedTime / 360000;
-//     var amountCost = Math.round(peoples * money * amaoutTime);
-
-//     cost = "今回の会議のコストは" + amountCost + "円だぜ！！";
-//     // document.getElementById("output_message").innerHTML = cost;
-
-// };
-
-
 
 
 function createCookie() {
