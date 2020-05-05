@@ -35,19 +35,5 @@ function getUrlVars(){
     
 
   return vars;
-  
-
-  
-
-
-  // console.log(output_message);
 }
 getUrlVars();
-// console.log(vars);
-// console.log(output_message);
-
-// var getparam = location.search.substring(param.length, location.search.length);
-// getparam = unescape(getparam);
-// document.getElementById("output_message").innerHTML = getparam;
-
-// console.log(getparam);
