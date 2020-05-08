@@ -36,26 +36,39 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
             <script>
                 $(function () {
-                    $("#stop").click(function () {
-                        $("#div3").dialog({
-                            modal: true, //モーダル表示
-                            title: "会議終わっちゃう？", //タイトル
-                            buttons: { //ボタン
-                                "Yes!": function () {
-                                    var param_time = elapsedTime;
-                                    console.log(param_time);
-                                    //ここで人数とひとりあたコストの値を取得して、パラメータを生成している
-                                    var peoples = document.getElementById("peoples").value;
-                                    var per_cost = document.getElementById("money").value;
-                                    window.location.href = "./cost.html?param=" + param_time + "=" + peoples + "=" + per_cost;
-                                },
-                                "まだ続ける": function () {
-                                    
-                                    $(this).dialog("close");
+                    var oPeople = document.getElementById('peoples');
+                    var oMoney = document.getElementById('money');
+                    var oBtn = document.getElementById('stop');
+                    function isnull(val1, val2) {
+                        var str1 = val1.replace(/(^\s*)|(\s*$)/g, '');//spaceを消す
+                        var str2 = val2.replace(/(^\s*)|(\s*$)/g, '');
+                        if (str1, str2 == '' || str1, str2 == undefined || str1, str2 == null
+                            || str1 < 1 || str1 > 99 || str2 < 790 || str2 > 10000 ) {
+                            console.log('空');
+                        } else {
+                            $("#div3").dialog({
+                                modal: true, //モーダル表示
+                                title: "会議終わっちゃう？", //タイトル
+                                buttons: { //ボタン
+                                    "Yes!": function () {
+                                        var param_time = elapsedTime;
+                                        console.log(param_time);
+                                        //ここで人数とひとりあたコストの値を取得して、パラメータを生成している
+                                        var peoples = document.getElementById("peoples").value;
+                                        var per_cost = document.getElementById("money").value;
+                                        window.location.href = "./cost.html?param=" + param_time + "=" + peoples + "=" + per_cost;
+                                    },
+                                    "まだ続ける": function () {
+
+                                        $(this).dialog("close");
+                                    }
                                 }
-                            }
-                        });
-                    });
+                            });
+                        }
+                    }
+                    oBtn.onclick = function () {
+                        isnull(oPeople.value, oMoney.value);
+                    };
                 });
             </script>
             <!-- 中身-->
@@ -71,7 +84,8 @@
                 <!-- bottom -->
                 <p><input type="button" class="pure-button pure-button-primary" value="START" id="start">
                     <!-- <input type="button" class="myButton" onclick="stop()" value="STOP" id="stopBtn"> -->
-                    <button id="stop" value="STOP" type="button" class="pure-button pure-button-primary">STOP</button></p>
+                    <button id="stop" value="STOP" type="button" class="pure-button pure-button-primary">STOP</button>
+                </p>
             </div>
         </div>
 
