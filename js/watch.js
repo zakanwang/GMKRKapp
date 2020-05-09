@@ -1,5 +1,8 @@
 let elapsedTime = 0;
 let amountCost = 0;
+let h = 0;
+let m = 0;
+let s = 0;
 
 (function () {
     'use strict';
@@ -57,10 +60,15 @@ let amountCost = 0;
         if ( s < 10 ){
             s = "0" + s
         }
+        if (peoples, per_cost== '' || peoples, per_cost== undefined || peoples ,per_cost== null
+        || peoples < 1 || peoples > 99 || per_cost < 790 || per_cost> 10000 ) {
+            money = 0;
+        }
 
         //timer.textContent = h + ':' + m + ':' + s;
         document.getElementById("timer").innerHTML = h + ':' + m + ':' + s;
         document.getElementById("realTimeCost").innerHTML = "現在の会議コスト：" + "<span id='money2'>" + money + "</span>円";
+        
     }
 
 
