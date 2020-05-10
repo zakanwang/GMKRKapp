@@ -66,7 +66,7 @@ let s = 0;
         }
 
         //timer.textContent = h + ':' + m + ':' + s;
-        document.getElementById("timer").innerHTML = h + ':' + m + ':' + s;
+        document.getElementById("timer").innerHTML = "<span id='timer2'>" + h + ':' + m + ':' + s + "</span>";
         document.getElementById("realTimeCost").innerHTML = "現在の会議コスト：" + "<span id='money2'>" + money + "</span>円";
         
     }
