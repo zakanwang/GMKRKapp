@@ -78,8 +78,10 @@
             <div class="splash">
                 <!--人数-->
                 <p class="people">
-                    <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="1~99">人
-                    <input type="number" id="money" name="money" min="790" max="10000" placeholder="790~10000">円/人</p>
+                    <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="人数" onblur="peoplesBlur()" onfocus="peoplesFocus()">人
+                    <input type="number" id="money" name="money" min="790" max="10000" placeholder="1時間のコスト" onblur="moneyBlur()">円/人</p>
+                    <div id="peoplesErr"></div>
+                    <div id="moneyErr"></div>
                 <!-- 時計ボックス -->
                 <h1 class="splash-head" id="timer"> Press Start Button </h1>
                 <!-- コストボックス -->

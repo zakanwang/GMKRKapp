@@ -180,4 +180,21 @@ function readCookie() {
 };
 
 
+function peoplesBlur() {
+    var peoples = document.getElementById("peoples").value;
+    if (peoples < 1 || 99 < peoples) {
+        document.getElementById("peoplesErr").innerHTML = "人数は1~99の値を入力してください";
+    }else{
+        document.getElementById("peoplesErr").innerHTML = "";
+    }
+};
+
+function moneyBlur() {
+    var money = document.getElementById("money").value;
+    if (money < 790 || 10000 < money) {
+        document.getElementById("moneyErr").innerHTML = "1時間のコストは790~10000の値を入力してください";
+    }else{
+        document.getElementById("moneyErr").innerHTML = "";
+    }
+};
 
