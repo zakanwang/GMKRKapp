@@ -458,3 +458,7 @@ label {
 #moneyErr {
   color: red;
 }
+
+p.reset {
+  text-align: center;
+}
