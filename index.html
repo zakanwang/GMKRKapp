@@ -45,7 +45,10 @@
                         if (str1, str2 == '' || str1, str2 == undefined || str1, str2 == null
                             || str1 < 1 || str1 > 99 || str2 < 790 || str2 > 10000 ) {
                             alert("人数または金額が不正です。");
-                        } else {
+                        } else if ( elapsedTime == 0 ){
+                            alert("まだ会議始まってねーよ");
+
+                        }else{
                             $("#div3").dialog({
                                 modal: true, //モーダル表示
                                 title: "会議終わっちゃう？", //タイトル

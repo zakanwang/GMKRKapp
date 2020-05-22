@@ -3,6 +3,10 @@ let amountCost = 0;
 let h = 0;
 let m = 0;
 let s = 0;
+let ButtonFlag = 0 ;
+
+
+
 
 (function () {
     'use strict';
@@ -94,6 +98,7 @@ let s = 0;
     //startボタンにクリック時のイベントを追加(タイマースタートイベント)
     start.addEventListener('click', function () {
 
+
         
 
         //start.disabled = true;
@@ -101,6 +106,9 @@ let s = 0;
         
         //STARTボタンの値によって条件分岐をさせる。
         if (start.value == "START"){
+
+
+        
 
         //在時刻を示すDate.nowを代入
         startTime = Date.now();
@@ -127,10 +135,14 @@ let s = 0;
     
     stop.addEventListener('click', function () {
 
+
+
+
         clearTimeout(timerId);
 
         timeToadd += Date.now() - startTime;
         start.value = "START"
+    
     });
 
     //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
