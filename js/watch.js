@@ -3,7 +3,7 @@ let amountCost = 0;
 let h = 0;
 let m = 0;
 let s = 0;
-let ButtonFlag = 0 ;
+document.getElementById('stop').disabled=true;
 
 
 
@@ -108,7 +108,7 @@ let ButtonFlag = 0 ;
         if (start.value == "START"){
 
 
-        
+        document.getElementById('stop').disabled=false;
 
         //在時刻を示すDate.nowを代入
         startTime = Date.now();
