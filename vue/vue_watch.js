@@ -5,8 +5,44 @@ let m = 0;
 let s = 0;
 document.getElementById('stop').disabled = true;
 
+$(function () {
+    var oPeople = document.getElementById('peoples');
+    var oMoney = document.getElementById('money');
+    var oBtn = document.getElementById('stop');
+    function isnull(val1, val2) {
+        var str1 = val1.replace(/(^\s*)|(\s*$)/g, '');//spaceを消す
+        var str2 = val2.replace(/(^\s*)|(\s*$)/g, '');
+        if (str1, str2 == '' || str1, str2 == undefined || str1, str2 == null
+            || str1 < 1 || str1 > 99 || str2 < 790 || str2 > 10000 ) {
+            alert("人数または金額が不正です。");
+        } else{
+            $("#div3").dialog({
+                modal: true, //モーダル表示
+                title: "会議終わっちゃう？", //タイトル
+                buttons: { //ボタン
+                    "Yes!": function () {
+                        var param_time = elapsedTime;
+                        // console.log(param_time);
+                        
+                        // console.log(h);
+                        // console.log(m);
+                        //ここで人数とひとりあたコストの値を取得して、パラメータを生成している
+                        var peoples = document.getElementById("peoples").value;
+                        var per_cost = document.getElementById("money").value;
+                        window.location.href = "./cost.html?param=" + param_time + "=" + peoples + "=" + per_cost;
+                    },
+                    "まだ続ける": function () {
 
-
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+    }
+    oBtn.onclick = function () {
+        isnull(oPeople.value, oMoney.value);
+    };
+});
 
 (function () {
     'use strict';
@@ -23,15 +59,11 @@ document.getElementById('stop').disabled = true;
     //クリック時の時間を保持するための変数定義
     var startTime;
 
-    //経過時刻を更新するための変数。 初めはだから0で初期化
-    // var elapsedTime = 0;
-
     //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
     var timerId;
 
     //タイマーをストップ -> 再開させたら0になってしまうのを避けるための変数。
     var timeToadd = 0;
-
 
     //ミリ秒の表示ではなく、分とか秒に直すための関数, 他のところからも呼び出すので別関数として作る
     //計算方法として135200ミリ秒経過したとしてそれを分とか秒に直すと -> 02:15:200
@@ -41,17 +73,6 @@ document.getElementById('stop').disabled = true;
         var m = Math.floor(elapsedTime / 1000 / 60) % 60;
         var s = Math.floor(elapsedTime / 1000) % 60;
         var ms = elapsedTime % 1000;
-
-
-        //HTML 上で表示の際の桁数を固定する　例）3 => 03　、 12 -> 012
-        //javascriptでは文字列数列を連結すると文字列になる
-        //文字列の末尾2桁を表示したいのでsliceで負の値(-2)引数で渡してやる。
-        //h = ('0' + h).slice(-1);
-        //m = ('0' + m).slice(-2);
-        //s = ('0' + s).slice(-2);
-        //ms = ('0' + ms).slice(-3);
-
-        //HTMLのid　timer部分に表示させる　
 
         var peoples = document.getElementById("peoples").value;
         var per_cost = document.getElementById("money").value;
@@ -72,7 +93,6 @@ document.getElementById('stop').disabled = true;
         //timer.textContent = h + ':' + m + ':' + s;
         document.getElementById("timer").innerHTML = "<span id='timer2'>" + h + ':' + m + ':' + s + "</span>";
         document.getElementById("realTimeCost").innerHTML = "現在の会議コスト：" + "<span id='money2'>" + money + "</span>円";
-
     }
 
 
@@ -81,15 +101,12 @@ document.getElementById('stop').disabled = true;
 
         //timerId変数はsetTimeoutの返り値になるので代入する
         timerId = setTimeout(function () {
-
             //経過時刻は現在時刻をミリ秒で示すDate.now()からstartを押した時の時刻(startTime)を引く
             elapsedTime = Date.now() - startTime + timeToadd;
             updateTimetText();
+
             //countUp関数自身を呼ぶことで10ミリ秒毎に以下の計算を始める
-
             countUp();
-
-
 
             //1秒以下の時間を表示するために10ミリ秒後に始めるよう宣言
         }, 10);
@@ -97,17 +114,11 @@ document.getElementById('stop').disabled = true;
 
     //startボタンにクリック時のイベントを追加(タイマースタートイベント)
     start.addEventListener('click', function () {
-
-
-
-
         //start.disabled = true;
         // startBtn();
 
         //STARTボタンの値によって条件分岐をさせる。
         if (start.value == "START") {
-
-
             document.getElementById('stop').disabled = false;
 
             //在時刻を示すDate.nowを代入
@@ -124,19 +135,10 @@ document.getElementById('stop').disabled = true;
 
             timeToadd += Date.now() - startTime;
             start.value = "START"
-
         }
-
     });
 
-
-
-
     stop.addEventListener('click', function () {
-
-
-
-
         clearTimeout(timerId);
 
         timeToadd += Date.now() - startTime;
@@ -146,7 +148,6 @@ document.getElementById('stop').disabled = true;
 
     //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
     reset.addEventListener('click', function () {
-
         //経過時刻を更新するための変数elapsedTimeを0にしてあげつつ、updateTimetTextで0になったタイムを表示。
         elapsedTime = 0;
 
@@ -155,10 +156,8 @@ document.getElementById('stop').disabled = true;
 
         //updateTimetTextで0になったタイムを表示
         updateTimetText();
-
     });
 })();
-
 
 function createCookie() {
     //cookieの保持期限を設定
@@ -189,7 +188,6 @@ function readCookie() {
     };
     return null;
 };
-
 
 function peoplesBlur() {
     var peoples = document.getElementById("peoples").value;
