@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -13,6 +14,7 @@
     <!--收藏夹显示图标-->
     <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
 </head>
+
 <body>
     <form action="cost.html" method="get">
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
@@ -31,7 +33,7 @@
                 <!--人数-->
                 <p class="people">
                     <input type="number" id="peoples" name="peoples" min="1" max="99" placeholder="人数"
-                        onblur="peoplesBlur()" onfocus="peoplesFocus()">人
+                        onblur="peoplesBlur()">人
                     <input type="number" id="money" name="money" min="790" max="10000" placeholder="1時間のコスト"
                         onblur="moneyBlur()">円/人</p>
                 <div id="peoplesErr"></div>
@@ -90,4 +92,5 @@
         </div>
         <script src="./vue/vue_watch.js"></script>
 </body>
+
 </html>
