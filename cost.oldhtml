@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pure.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <title>業務効率化アプリ</title>
+  <!--网页标题左侧显示-->
+  <link rel="icon" href="./img/timer.ico" type="image/x-icon">
+  <!--收藏夹显示图标-->
+  <link rel="shortcut icon" href="./img/timer.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+    <a href="index.html"><img src="img/logo.png" alt=""></a>
+  </div>
+  <div class="splash-container">
+    <div class="">
+      <h1 class="title">クロエタイマー</h1>
+
+      <div class="cost_result">
+        <h1 id="thisdate" class="r1"></h1>
+        <h1 id="output_message" class="r1"></h1>
+        <h1 id="peoples" class="r2"></h1>
+        <h1 id="per_cost" class="r3"></h1>
+        <h1 id="result" class="r4"></h1>
+      </div>
+      <div>
+        <p class="reset"><input type="button" class="pure-button pure-button-primary" value="RESET" onclick="location.href='./index.html'"> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--footer-->
+  <div class="footer l-box is-center">
+    Ⓒ 2020 Kanae Bucket Plus
+  </div>
+  <script src="./js/cost.js"></script>
+  <script src="./js/watch.js"></script>
+</body>
+
+</html>
